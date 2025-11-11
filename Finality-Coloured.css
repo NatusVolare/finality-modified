@@ -126,3 +126,57 @@ a[title*="Fav"] {
   display: none !important;
 }
 
+/* ---------------------------------------------------------------------------
+   Custom loading logo
+   - Replace the logo shown on Jellyfin's loading/splash screen with your own
+   - Edit --custom-loading-logo-url below and point it to a PNG/SVG (raw URL)
+   - The rules target several common Jellyfin selectors; if your client uses
+     different ones, tell me the element/class and I'll adjust.
+   ------------------------------------------------------------------------ */
+
+:root {
+  /* Set this to your raw image URL (GitHub raw, CDN, or hosted image).
+    Updated to use the `GriffinLogo.png` uploaded to the repository root. */
+  --custom-loading-logo-url: "https://raw.githubusercontent.com/NatusVolare/finality-modified/main/GriffinLogo.png";
+  --custom-loading-logo-width: 6.5rem; /* adjust as needed */
+  --custom-loading-logo-height: 6.5rem; /* adjust as needed */
+}
+
+/* container selectors that commonly hold the logo */
+.appLogo,
+.app-logo,
+.splashLogo,
+.splash-logo,
+.loadingLogo,
+.loading-logo,
+.loading .logo,
+.loading .appLogo,
+.logo,
+.appHeader .logo {
+  background-image: var(--custom-loading-logo-url) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
+  width: var(--custom-loading-logo-width) !important;
+  height: var(--custom-loading-logo-height) !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Hide any <img> inside these containers so only the custom background shows */
+.appLogo img,
+.splashLogo img,
+.loadingLogo img,
+.logo img,
+.appHeader .logo img {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* If the logo appears as an inline SVG, hide it and show the background instead */
+.appLogo svg,
+.splashLogo svg,
+.logo svg {
+  display: none !important;
+}
+
