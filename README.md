@@ -1,4 +1,21 @@
-# finality 
+# finality (modified fork)
+
+This repository is a personal fork of the "Finality" Jellyfin theme originally created by Ted Hinklater (see the original project at https://github.com/tedhinklater/finality). Full credit goes to the original author and contributors — thank you for the great work.
+
+Why this fork exists
+- This fork contains personal visual and layout adjustments made for my own Jellyfin instance and viewing preferences. The changes are primarily CSS-only and intended to tweak colors, spacing, and layout to favor fullscreen (F11) viewing and ultrawide screens.
+- The goal is to preserve the look-and-feel and functionality of the original Finality theme while making a few personal modifications (listed below) for convenience and preference.
+
+Notable modifications in this fork
+- Color and contrast adjustments (black & white defaults and a coloured variant).
+- Layout tweaks to keep key content visible in fullscreen without vertical scrolling.
+- Additional ultrawide fixes and small responsive improvements.
+- Player styling refinements and minor UI tweaks for personal preference.
+- Guidance for integrating the Featured Content Bar and recommended display settings.
+
+Compatibility & attribution
+- This fork is derived from the original Finality theme. Please refer to the upstream repository for the original license and attributions: https://github.com/tedhinklater/finality
+
 768p :heavy_check_mark: 1080p :heavy_check_mark: 1440p :heavy_check_mark: 4k :heavy_check_mark: Mobile :heavy_check_mark: TV Mode :soon:
 
 Also: Turn it up to 11 with the new [Featured Content Bar](https://github.com/tedhinklater/Jellyfin-Featured-Content-Bar) 
