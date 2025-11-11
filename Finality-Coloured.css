@@ -75,3 +75,54 @@ similar override or use this file as the import source.
   visibility: visible !important;
   opacity: 1 !important;
 }
+
+/* ---------------------------------------------------------------------------
+   Remove Home and Favorites icons/buttons from the top bar across all screens
+   This hides common variants (aria-label, title, class names and icon fonts).
+   If you still see buttons after updating, inspect the element and tell me
+   the exact aria-label/title/class and I'll add a precise selector.
+   ------------------------------------------------------------------------ */
+
+/* Attribute-based catches (aria-label/title containing 'Home' or 'Fav') */
+[aria-label*="Home"],
+[title*="Home"],
+[aria-label*="Fav"],
+[title*="Fav"],
+
+/* Common class/name patterns used by Jellyfin and icon fonts */
+.homeButton,
+.home-icon,
+.nav-home,
+.nav-favorites,
+.favoritesButton,
+.favoriteButton,
+.fav-button,
+.fa-home,
+.mdi-home,
+.icon-home,
+.fa-heart,
+.mdi-heart,
+.icon-favorite,
+.icon-favourites,
+.topBar .home,
+.topBar .favorites,
+.appHeader .home,
+.appHeader .favorites {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Also specifically hide common button/link elements that include the text
+   to catch localized/variant labels without affecting unrelated elements. */
+button[aria-label*="Home"],
+a[aria-label*="Home"],
+button[aria-label*="Fav"],
+a[aria-label*="Fav"],
+button[title*="Home"],
+a[title*="Home"],
+button[title*="Fav"],
+a[title*="Fav"] {
+  display: none !important;
+}
+
