@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/tedhinklater/finality@main/finality.css");
+@import url("https://cdn.jsdelivr.net/gh/NatusVolare/finality-modified@main/finality.css");
 
 /* Backdrop */
 .layout-desktop .backdropImage {
@@ -35,148 +35,45 @@
   transition: filter 0.3s;
 }
 
-/*
-Force collection / collapsible sections to be expanded by default.
-This overrides the client-side collapsed/expand behavior so that
-collection items (films) are visible without requiring a click.
-It targets common Jellyfin class/id patterns used for collapsible
-sections. If you import the plain `finality.css` instead, add a
-similar override or use this file as the import source.
-*/
-
-/* Target elements with ids that end with 'Collapsible' (cast, collections, etc.) */
-[id$="Collapsible"] .childrenItemsContainer,
-[id$="Collapsible"] .childrenItemsContainer .itemsContainer,
-[id$="Collapsible"] .itemsContainer,
-[id$="Collapsible"] .overflowContainer,
-.collapsible .childrenItemsContainer,
-.collapsible .itemsContainer,
-.collection-items,
-.collection-set .itemsContainer,
-.collection-set .childrenItemsContainer {
-  display: block !important;
-  max-height: none !important;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-/* Hide any expand/collapse toggle visuals so it behaves like a normal list */
-[id$="Collapsible"] .expandCollapse,
-.collapsible .expandCollapse,
-.collection-set .expandCollapse,
-.collection-toggle,
-.collection-set .toggle-button {
-  display: none !important;
-}
-
-/* If the client adds aria-hidden or similar attributes, ensure children are visible */
-[aria-hidden="true"] {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
 /* ---------------------------------------------------------------------------
-   Remove Home and Favorites icons/buttons from the top bar across all screens
-   This hides common variants (aria-label, title, class names and icon fonts).
-   If you still see buttons after updating, inspect the element and tell me
-   the exact aria-label/title/class and I'll add a precise selector.
-   ------------------------------------------------------------------------ */
-
-/* Attribute-based catches (aria-label/title containing 'Home' or 'Fav') */
-[aria-label*="Home"],
-[title*="Home"],
-[aria-label*="Fav"],
-[title*="Fav"],
-
-/* Common class/name patterns used by Jellyfin and icon fonts */
-.homeButton,
-.home-icon,
-.nav-home,
-.nav-favorites,
-.favoritesButton,
-.favoriteButton,
-.fav-button,
-.fa-home,
-.mdi-home,
-.icon-home,
-.fa-heart,
-.mdi-heart,
-.icon-favorite,
-.icon-favourites,
-.topBar .home,
-.topBar .favorites,
-.appHeader .home,
-.appHeader .favorites {
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-/* Also specifically hide common button/link elements that include the text
-   to catch localized/variant labels without affecting unrelated elements. */
-button[aria-label*="Home"],
-a[aria-label*="Home"],
-button[aria-label*="Fav"],
-a[aria-label*="Fav"],
-button[title*="Home"],
-a[title*="Home"],
-button[title*="Fav"],
-a[title*="Fav"] {
-  display: none !important;
-}
-
-/* ---------------------------------------------------------------------------
-   Custom loading logo
-   - Replace the logo shown on Jellyfin's loading/splash screen with your own
-   - Edit --custom-loading-logo-url below and point it to a PNG/SVG (raw URL)
-   - The rules target several common Jellyfin selectors; if your client uses
-     different ones, tell me the element/class and I'll adjust.
+   Custom Griffin loading logo - replaces Jellyfin logo on bootup/splash
+   Uses absolute CDN URL to ensure it loads reliably on theme startup.
    ------------------------------------------------------------------------ */
 
 :root {
-  /* Set this to your raw image URL (GitHub raw, CDN, or hosted image).
-    Updated to use the `GriffinLogo.png` uploaded to the repository root. */
-  --custom-loading-logo-url: "https://raw.githubusercontent.com/NatusVolare/finality-modified/main/GriffinLogo.png";
-  --custom-loading-logo-width: 6.5rem; /* adjust as needed */
-  --custom-loading-logo-height: 6.5rem; /* adjust as needed */
+  --custom-loading-logo-url: url('https://cdn.jsdelivr.net/gh/NatusVolare/finality-modified@main/GriffinLogo.png');
+  --custom-loading-logo-size: 6.5rem;
 }
 
-/* container selectors that commonly hold the logo */
-.appLogo,
-.app-logo,
+/* Target all common Jellyfin logo containers on splash/loading screens */
 .splashLogo,
-.splash-logo,
 .loadingLogo,
-.loading-logo,
-.loading .logo,
-.loading .appLogo,
+.appLogo,
 .logo,
-.appHeader .logo {
+.pageTitleWithLogo,
+.loginLogo {
   background-image: var(--custom-loading-logo-url) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: contain !important;
-  width: var(--custom-loading-logo-width) !important;
-  height: var(--custom-loading-logo-height) !important;
+  width: var(--custom-loading-logo-size) !important;
+  height: var(--custom-loading-logo-size) !important;
   display: inline-block !important;
-  vertical-align: middle !important;
 }
 
-/* Hide any <img> inside these containers so only the custom background shows */
-.appLogo img,
+/* Hide default Jellyfin img/svg inside logo containers */
 .splashLogo img,
 .loadingLogo img,
+.appLogo img,
 .logo img,
-.appHeader .logo img {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-/* If the logo appears as an inline SVG, hide it and show the background instead */
-.appLogo svg,
+.pageTitleWithLogo img,
+.loginLogo img,
 .splashLogo svg,
+.loadingLogo svg,
+.appLogo svg,
 .logo svg {
-  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
 }
-
