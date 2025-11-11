@@ -27,41 +27,74 @@ Care has been taken to make it work in windowed mode, but it's mainly for fullsc
 
 ![Screenshot 2024-12-17 014557](https://github.com/user-attachments/assets/827ef13c-fa97-494c-9a02-11530907659d)
 
-For the black & white version, paste this into your Custom CSS Box
+# How to Deploy on Your Jellyfin Server
+
+## Step 1: Access Jellyfin Dashboard
+1. Log in to your Jellyfin server as an administrator
+2. Click on the hamburger menu (☰) in the top-left corner
+3. Navigate to **Dashboard** → **General** → **Custom CSS**
+
+## Step 2: Choose Your Theme Version
+
+### Option A: Black & White Version (Recommended)
+Paste this into your Custom CSS Box:
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/Jeffrey214/finality-modified@main/finality.css");
-
+@import url("https://cdn.jsdelivr.net/gh/NatusVolare/finality-modified@main/finality.css");
 ```
 
-or, import the colour version with
+### Option B: Coloured Version
+Or, import the colour version with:
 
 ```css
-
-@import url("https://cdn.jsdelivr.net/gh/Jeffrey214/finality-modified@main/Finality-Coloured.css");
-
+@import url("https://cdn.jsdelivr.net/gh/NatusVolare/finality-modified@main/Finality-Coloured.css");
 ```
 
+### Option C: For Ultrawide Monitors (21:9 or wider)
+Import a version above, and also add this fix:
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/NatusVolare/finality-modified@main/UltrawideFix.css");
+```
+
+### Optional: Scrolling Backdrop Effect
+For an animated pan and tilt backdrop effect:
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/NatusVolare/finality-modified@main/scrolling%20backdrop.css");
+```
+
+## Step 3: Configure Display Settings
+1. Go to **Dashboard** → **Display**
+2. Enable the following settings:
+   - **Theme**: Dark
+   - **Enable Backdrops**: ✓ (Checked)
+3. Save your changes
+
+## Step 4: View in Fullscreen (F11)
+This theme is optimized for fullscreen viewing. Press **F11** in your browser to enter fullscreen mode for the best experience.
+
+## Step 5: (Optional) Install Featured Content Bar
+For an enhanced experience with a featured content carousel, install the [Featured Content Bar](https://github.com/tedhinklater/Jellyfin-Featured-Content-Bar) plugin.
+
+---
+
+# Preview & Screenshots
+
+## Desktop Views
 ![Screenshot 2024-12-11 064413](https://github.com/user-attachments/assets/657fb2df-40dd-42ee-b4d1-5b1691010b4d)
 ![Screenshot 2024-11-19 110303](https://i.imgur.com/S5Pgjip.png)
 ![Screenshot 2024-12-11 065050](https://github.com/user-attachments/assets/957fed52-2749-46f5-bd7c-8d75565d52f2)
 ![finality episodes](https://github.com/user-attachments/assets/139e219c-a431-467f-b393-184cf7e045d8)
 ![unknown_2024 12 17-01 33_1](https://github.com/user-attachments/assets/e8e6f142-f4c1-48fe-9784-b725fe19cea3)
 
-Ultrawide users, import a version above, and also this fix: 
-
-```css
-
-@import url("https://cdn.jsdelivr.net/gh/Jeffrey214/finality-modified@main/UltrawideFix.css");
-
-```
-
-# Player 
+## Player
 ![Screenshot 2024-11-09 040750](https://github.com/user-attachments/assets/8569475b-c90d-4a42-8f5e-aea786a78105)
 
-# Mobile
+## Mobile
 ![mobile](https://github.com/tedhinklater/finality/assets/66086488/a0fb2aec-2794-4d68-b96c-9a144844729a)
 
-Under "Display" make sure you enable backdrops and use the Dark theme
+## Display Settings Reference
+Make sure you enable backdrops and use the Dark theme:
 
 ![darkbackdrops](https://github.com/user-attachments/assets/b69b1143-22c1-48df-b8e5-5aaa1869a97f)
